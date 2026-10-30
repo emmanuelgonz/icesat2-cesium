@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ICESat-2 Live Tracker</title>
+  <script src="https://cdn.jsdelivr.net/npm/cesium@1.146.0/Build/Cesium/Cesium.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/cesium@1.146.0/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/satellite.js@5.0.0/dist/satellite.min.js"></script>
+  <style>
+    html, body, #cesiumContainer { width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden; }
+    #panel {
+      position: absolute; top: 10px; left: 10px; z-index: 10;
+      padding: 10px 14px; min-width: 230px;
+      background: rgba(30, 30, 36, 0.85); color: #eee;
+      font: 13px/1.5 monospace; border-radius: 6px;
+    }
+    #panel h1 { font-size: 14px; margin: 0 0 6px; }
+    #panel table { border-collapse: collapse; }
+    #panel td:first-child { padding-right: 10px; color: #aaa; }
+    #panel button { margin-top: 8px; width: 100%; cursor: pointer; }
+    #status { margin-top: 6px; color: #f0b429; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <div id="cesiumContainer"></div>
+  <div id="panel">
+    <h1>ICESat-2 (NORAD 43613)</h1>
+    <table>
+      <tr><td>Time (UTC)</td><td id="time">--</td></tr>
+      <tr><td>Latitude</td><td id="lat">--</td></tr>
+      <tr><td>Longitude</td><td id="lon">--</td></tr>
+      <tr><td>Altitude</td><td id="alt">--</td></tr>
+      <tr><td>TLE epoch</td><td id="epoch">--</td></tr>
+    </table>
+    <button id="followBtn">Follow ICESat-2</button>
+    <div id="status"></div>
+  </div>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
